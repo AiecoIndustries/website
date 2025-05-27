@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AiecoSense - AI-Powered Emission Monitoring & ESG Compliance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for hero background, font, and hover effects */
+	body {
+		margin: 0;
+	}
+        .hero-bg {
+            position: relative;
+            width: 100%vw;
+            height: 600px;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+	    	content: '';
+    		position: absolute;
+	        top: 0;
+    		left: 0;
+    		width: 100%;
+    		height: 100%;
+    		background: rgba(0, 0, 0, 0.5);
+    		z-index: 1;
+	}
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .hero-bg .content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .nav-link:hover {
+            color: #60A5FA;
+            transition: color 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .logo-text {
+            font-family: 'Open Sans', sans-serif;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-0">
+                <img src="C:\Users\saann\Downloads\m2.JPG"
+. alt="Aieco Industries Logo" class="h-20 max-h-100% w-auto">
+                <h2 class="text-4xl font-bold text-black-900 logo-text">AIECO INDUSTRIES</h2>
+            </div>
+            <ul class="flex space-x-8 text-blue-900">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#about" class="nav-link">About AiecoSense</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white">
+        <img src="C:\Users\saann\Downloads\Air-Emissions.webp" alt="Emission Monitoring" class="fallback-image">
+        <div class="content container mx-auto px-4 text-center">
+            <h2 class="text-5xl font-bold mb-4">AiecoSense</h2>
+            <p class="text-xl mb-6 max-w-2xl mx-auto">Revolutionizing emission monitoring and ESG compliance with AI-powered precision and real-time insights.</p>
+            <a href="#contact" class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700">Discover AiecoSense</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">AiecoSense Features</h2>
+
+            <!-- Real-Time Emissions Monitoring -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-blue-900 mb-6">🔍 Real-Time Emissions Monitoring</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Live CO₂ & Methane Tracking</h4>
+                        <p class="text-gray-600">Monitor greenhouse gas emissions 24/7 from connected sources (pumps, flares, valves, tanks).</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Sensor Fusion Analytics</h4>
+                        <p class="text-gray-600">Merge multiple sensor data streams (IoT, satellite, camera, drone) for higher accuracy.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Emission Heatmaps</h4>
+                        <p class="text-gray-600">Visualize emissions intensity across facilities, pipelines, and plants.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI & ML Intelligence -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-blue-900 mb-6">📈 AI & ML Intelligence</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">AI-Powered Emission Prediction</h4>
+                        <p class="text-gray-600">Time-series forecasting of emissions levels using machine learning models (LSTM, Prophet).</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">AI-Driven Leak Prediction</h4>
+                        <p class="text-gray-600">Detect potential leak risks based on pressure, flow rate anomalies, and historical patterns.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Anomaly Detection System</h4>
+                        <p class="text-gray-600">Automatically identify and alert on irregular CO₂/methane levels.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Root Cause Analysis Engine</h4>
+                        <p class="text-gray-600">Diagnose sources of high emissions using correlation and ML pattern recognition.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alert & Safety Systems -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-blue-900 mb-6">🚨 Alert & Safety Systems</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Threshold Breach Alerts</h4>
+                        <p class="text-gray-600">Real-time notifications when emissions approach legal or safety limits.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Multi-Channel Alerting</h4>
+                        <p class="text-gray-600">Email, SMS, WhatsApp, dashboard alerts to supervisors and ESG leads.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Autonomous ESG Compliance Engine -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-blue-900 mb-6">✅ Autonomous ESG Compliance Engine</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Regulation Checker</h4>
+                        <p class="text-gray-600">AI system compares live emissions data with country-specific ESG limits (UAE, EU, USA, etc.).</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Auto-Generated ESG Reports</h4>
+                        <p class="text-gray-600">Converts real-time data into formatted reports compliant with frameworks like GRI, SASB, TCFD, CDP.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Smart ESG Health Score</h4>
+                        <p class="text-gray-600">Real-time ESG rating score based on emissions trends, violations, and reporting readiness.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Multi-Site Aggregation Dashboard</h4>
+                        <p class="text-gray-600">Consolidate emissions and compliance across multiple sites/assets into one panel.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualization & Dashboards -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-blue-900 mb-6">📊 Visualization & Dashboards</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Real-Time ESG Dashboards</h4>
+                        <p class="text-gray-600">Interactive, filterable dashboards to explore emissions by date, source, and type.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Forecasting Charts & Scenario Planner</h4>
+                        <p class="text-gray-600">Compare predicted vs. actual emissions, test what-if scenarios.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Geolocation-Based Emission Mapping</h4>
+                        <p class="text-gray-600">Map-view of emission sources with drilldown capability.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Security & Compliance -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-blue-900 mb-6">🔐 Data Security & Compliance</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Blockchain-Based Logging</h4>
+                        <p class="text-gray-600">Optional – immutable logs for ESG data to ensure transparency and prevent tampering.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Role-Based Access Control</h4>
+                        <p class="text-gray-600">Secure data access by role (auditors, managers, operators).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carbon Accounting & Sustainability -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-blue-900 mb-6">♻️ Carbon Accounting & Sustainability</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">AI-Enhanced Carbon Credit Insights</h4>
+                        <p class="text-gray-600">Estimate carbon savings and potential tradable credits based on emissions reduction.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Scope 1, 2, 3 Emission Attribution</h4>
+                        <p class="text-gray-600">Automated separation and tracking of direct/indirect emissions.</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Energy Efficiency Optimizer (Phase 2)</h4>
+                        <p class="text-gray-600">Identify low-efficiency assets contributing to higher emissions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platform Extensibility -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-blue-900 mb-6">⚡ Platform Extensibility</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">API for Integration</h4>
+                        <p class="text-gray-600">Integrate with enterprise systems (SAP, Oracle, SCADA, PI systems).</p>
+                    </div>
+                    <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold text-blue-900 mb-2">Modular Add-ons</h4>
+                        <p class="text-gray-600">Add capabilities like satellite integration, drone input, or flare monitoring modules.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-blue-900 mb-6">About AiecoSense</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">AiecoSense, developed by Aieco Industries, is an AI-powered platform designed to empower businesses with precise emission monitoring and seamless ESG compliance. Our mission is to drive sustainability through innovative technology, helping companies reduce their environmental impact while meeting regulatory requirements.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-blue-900 mb-6">Get in Touch</h2>
+            <p class="text-lg text-gray-600 mb-8">Contact us to learn how AiecoSense can transform your sustainability efforts.</p>
+            <div class="max-w-lg mx-auto">
+                <input type="text" placeholder="Your Name" class="w-full p-3 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                <input type="email" placeholder="Your Email" class="w-full p-3 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                <textarea placeholder="Your Message" class="w-full p-3 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" rows="5"></textarea>
+                <button class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700">Send Message</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-4">© 2025 Aieco Industries. All rights reserved.</p>
+            <ul class="flex justify-center space-x-6">
+                <li><a href="#home" class="hover:text-blue-300">Home</a></li>
+                <li><a href="#features" class="hover:text-blue-300">Features</a></li>
+                <li><a href="#about" class="hover:text-blue-300">About</a></li>
+                <li><a href="#contact" class="hover:text-blue-300">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
