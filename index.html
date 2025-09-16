@@ -1,552 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AiecoSense 3 - AI for Scope 3 & ESG Compliance in Oil & Gas</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Space Grotesk', sans-serif;
-            background: #FFFFFF;
-            color: #000000;
-        }
-        .logo-text {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-style: italic;
-        }
-        .hero-bg {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            background: #E0E0E0;
-            opacity: 0;
-            transform: scale(0.95);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .hero-bg.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .hero-bg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 0;
-            opacity: 0.3;
-        }
-        .hero-bg .content {
-            position: relative;
-            z-index: 2;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-        .animated-btn {
-            position: relative;
-            color: #000000;
-            padding: 12px 24px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: inline-block;
-            transform: scale(1);
-        }
-        .animated-btn::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: #000000;
-            transition: width 0.3s ease;
-        }
-        .animated-btn:hover::after {
-            width: 100%;
-        }
-        .animated-btn:hover {
-            transform: scale(1.05);
-        }
-        .nav-link:hover {
-            color: #E0E0E0;
-            transition: color 0.3s ease;
-        }
-        .services-bg, .mission-bg, .about-bg, .contact-bg, .testimonials-bg, .why-choose-bg {
-            opacity: 0;
-            transform: scale(0.95);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .services-bg.visible, .mission-bg.visible, .about-bg.visible, .contact-bg.visible, .testimonials-bg.visible, .why-choose-bg.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .services-bg {
-            background: #E0E0E0;
-        }
-        .feature-card {
-            opacity: 0;
-            transform: translateY(60px) scale(0.95);
-            transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
-            background: #FFFFFF;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid #E0E0E0;
-        }
-        .feature-card.visible {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-        .feature-card:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        .mission-card {
-            background: #FFFFFF;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #E0E0E0;
-            transform: scale(1);
-        }
-        .mission-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        .about-bg, .contact-bg {
-            background: #E0E0E0;
-        }
-        .testimonials-bg {
-            background: #FFFFFF;
-        }
-        .footer-bg {
-            background: #E0E0E0;
-        }
-        .carousel {
-            display: flex;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-            padding: 20px 0;
-        }
-        .testimonial-card {
-            min-width: 300px;
-            background: #E0E0E0;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 0 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            transform: scale(1);
-        }
-        .testimonial-card:hover {
-            transform: scale(1.03);
-        }
-        .why-choose-bg {
-            background: #E0E0E0;
-        }
-        .benefit-card {
-            opacity: 0;
-            transform: translateY(60px) scale(0.95);
-            transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
-            background: #FFFFFF;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            border: 1px solid #E0E0E0;
-        }
-        .benefit-card.visible {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-        .benefit-card:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        #nav-menu li, #mobile-menu li {
-            list-style: none;
-        }
-        @media (max-width: 640px) {
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background: #E0E0E0;
-                flex-direction: column;
-                padding: 10px;
-            }
-            .nav-menu.active {
-                display: flex;
-            }
-            .hamburger {
-                display: block;
-                font-size: 24px;
-                cursor: pointer;
-            }
-            .hero-bg .content h2 {
-                font-size: 2rem;
-            }
-            .hero-bg .content h3 {
-                font-size: 1.5rem;
-            }
-            .hero-bg .content p {
-                font-size: 1rem;
-            }
-            .grid-cols-3 {
-                grid-template-columns: 1fr;
-            }
-            .carousel {
-                flex-wrap: nowrap;
-            }
-            .testimonial-card {
-                min-width: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AiecoOne – AI Safety Intelligence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      margin: 0; background: #ffffff; color: #0a1f44;
+    }
+    /* Hero with background */
+    .hero {
+      position: relative; width: 100%; height: 100vh; overflow: hidden;
+    }
+    .hero video {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      z-index: 0;
+    }
+    .overlay {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.45); /* semi-transparent layer */
+      z-index: 1;
+    }
+    nav {
+      position: absolute; top: 0; width: 100%;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 40px; z-index: 5;
+    }
+    nav img { height: 50px; }
+    .logo-text { font-weight: 700; font-style: italic; font-size: 1.8rem; color: #fff; }
+    nav ul {
+      display: flex; gap: 30px; list-style: none; margin: 0; padding: 0;
+      align-items: center;
+    }
+    nav ul li a { color: #fff; font-weight: 600; transition: color 0.3s; }
+    nav ul li a:hover { color: #007bff; }
+    .ellipse-btn {
+      background: #007bff; color: #fff; font-weight: 700;
+      padding: 10px 28px; border-radius: 9999px;
+      transition: all 0.3s ease; margin-left: 20px;
+      display: inline-block;
+    }
+    .ellipse-btn:hover {
+      background: #fff; color: #0a1f44; transform: scale(1.05);
+    }
+    .hero .content {
+      position: relative; z-index: 5;
+      height: 100%; display: flex;
+      flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; color: #fff; padding: 0 20px;
+    }
+    .slide { display: none; }
+    .slide.active { display: block; }
+    .slide h2 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+    .slide p { font-size: 1.25rem; max-width: 800px; margin: 0 auto; }
+    .btn {
+      margin: 1rem; padding: 12px 24px;
+      border: 2px solid #fff; border-radius: 6px;
+      font-weight: bold; transition: all 0.3s ease;
+      display: inline-block; color: #fff;
+    }
+    .btn:hover {
+      background: #007bff; color: #fff; border-color: #007bff;
+      transform: scale(1.05);
+    }
+    section { padding: 80px 20px; }
+    footer { text-align: center; padding: 20px; background: #f2f2f2; color: #444; }
+  </style>
 </head>
+
 <body>
-    <!-- Navigation Bar -->
-    <nav class="bg-#FFFFFF shadow-md sticky top-0 z-10">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <img src="m1.png" alt="AiecoSense 3 Logo" class="h-12">
-                <span class="logo-text text-3xl md:text-4xl font-bold">AIECO INDUSTRIES</span>
-            </div>
-            <div class="md:flex space-x-8 text-#000000 hidden md:block" id="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#about" class="nav-link">About AiecoSense 3</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </div>
-            <div class="md:hidden">
-                <span class="hamburger text-#000000" onclick="toggleMenu()">☰</span>
-            </div>
-        </div>
-        <div id="mobile-menu" class="nav-menu"></div>
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <!-- Background video -->
+    <video autoplay muted loop playsinline>
+      <source src="C:\Users\saann\Downloads\grok-video-95c452bf-ebe9-4537-a79c-90089a585097.mp4"type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+
+    <!-- Navbar inside hero -->
+    <nav>
+      <div class="flex items-center space-x-4">
+        <img src="C:\Users\saann\Downloads\website-main\m4.png"" alt="AiecoOne Logo"/>
+        <span class="logo-text">AIECO INDUSTRIES</span>
+      </div>
+      <ul>
+        <li><a href="C:\Users\saann\Downloads\website-main\index.html">Home</a></li>
+        <li><a href="C:\Users\saann\Downloads\website-main\services.html">Services</a></li>
+        <li><a href="C:\Users\saann\Downloads\website-main\aboutus.html">About</a></li>
+        <li><a href="C:\Users\saann\Downloads\website-main\book.html" class="ellipse-btn">Book Services</a></li>
+      </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-bg text-#000000">
-        <img src="Air-Emissions.webp" alt="Emission Monitoring" class="fallback-image">
-        <div class="content container mx-auto px-4 text-center">
-            <h2 class="text-5xl md:text-6xl font-bold mb-4 text-#000000 drop-shadow-lg">AiecoSense 3 – AI for Scope 3 & ESG Compliance in Oil & Gas</h2>
-            <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-#000000">Powerful. Precise. Tailored.</h3>
-            <p class="text-xl md:text-2xl mb-6 max-w-2xl mx-auto text-#000000">AiecoSense 3 empowers oil & gas companies to simplify, automate, and future-proof Scope 3 emissions tracking and ESG compliance with advanced artificial intelligence.</p>
-            <a href="#contact" class="animated-btn font-semibold">Request a Demo</a>
+    <!-- Hero Content -->
+    <div class="content">
+      <div class="slide active">
+        <h2>🦺 Real-Time PPE Detection</h2>
+        <p>Ensure every worker is safe with AI monitoring helmets, vests & gloves.</p>
+      </div>
+      <div class="slide">
+        <h2>🚨 Hazard & Intrusion Alerts</h2>
+        <p>AI detects sparks, gas leaks, intrusions & dangerous zones instantly.</p>
+      </div>
+      <div class="slide">
+        <h2>👷 Worker Task Monitoring</h2>
+        <p>Track worker movements & task adherence with live AI vision.</p>
+      </div>
+      <div class="slide">
+        <h2>📊 Predictive Safety Dashboard</h2>
+        <p>See compliance rates, incident history & risk forecasts in real time.</p>
+      </div>
+      <div class="slide">
+        <h2>🌐 Unified Safety Platform</h2>
+        <p>Integrate CCTV, IoT & sensors into one AI-driven ecosystem.</p>
+      </div>
+      <div class="mt-8">
+        <a href="services.html" class="btn">Explore Safety Features</a>
+        <a href="contact.html" class="btn">Book Demo</a>
+      </div>
+    </div>
+  </section>
+
+<!-- Services (White BG) -->
+<section id="services" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto text-center mb-12">
+    <h2 class="text-3xl font-bold text-[#0a1f44] opacity-0 translate-y-10 transition-all duration-700" id="services-heading">Our Services</h2>
+    <p class="text-gray-600 opacity-0 translate-y-10 transition-all duration-700 delay-150" id="services-subheading">AI-driven safety across every aspect of your worksite.</p>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+    <!-- Left: Tall Image -->
+    <div class="relative h-[600px] rounded-xl overflow-hidden shadow-lg group transform transition-transform duration-500 hover:scale-105 opacity-0 translate-y-10" data-animate>
+      <img src="C:\Users\saann\Downloads\website-main\ppe.jpg" class="w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-white p-6">
+        <!-- Always visible -->
+        <h3 class="text-2xl font-semibold mb-2">🦺 PPE Compliance</h3>
+        <p class="text-base opacity-90">AI ensures helmets, vests & gloves are always worn.</p>
+      </div>
+    </div>
+    <!-- Right: Two Images -->
+    <div class="flex flex-col gap-6">
+      <div class="relative h-[290px] rounded-xl overflow-hidden shadow-lg group transform transition-transform duration-500 hover:scale-105 opacity-0 translate-y-10" data-animate>
+        <img src="C:\Users\saann\Downloads\website-main\haz.jpg" class="w-full h-full object-cover"/>
+        <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-white p-6">
+          <h3 class="text-xl font-semibold mb-2">🚨 Hazard Detection</h3>
+          <p class="opacity-90">Identify sparks, leaks & unsafe zones in real time.</p>
         </div>
-    </section>
-
-    <!-- Mission, Vision, Values Section -->
-    <section class="py-16 bg-#E0E0E0 text-center mission-bg">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-#000000 mb-12">🌟 Our Mission, Vision, Values</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <div class="mission-card">
-                    <p class="text-4xl mb-2">🎯</p>
-                    <h4 class="text-xl md:text-2xl font-semibold mb-2 text-#000000">Mission</h4>
-                    <p class="text-gray-600">To revolutionize ESG compliance in oil & gas with AI-driven solutions, ensuring sustainability and accountability.</p>
-                </div>
-                <div class="mission-card">
-                    <p class="text-4xl mb-2">👁️</p>
-                    <h4 class="text-xl md:text-2xl font-semibold mb-2 text-#000000">Vision</h4>
-                    <p class="text-gray-600">To lead the energy sector towards a net-zero future with innovative technology and collaboration.</p>
-                </div>
-                <div class="mission-card">
-                    <p class="text-4xl mb-2">❤️</p>
-                    <h4 class="text-xl md:text-2xl font-semibold mb-2 text-#000000">Values</h4>
-                    <p class="text-gray-600">Integrity, innovation, and partnership in every step towards a sustainable tomorrow.</p>
-                </div>
-            </div>
+      </div>
+      <div class="relative h-[290px] rounded-xl overflow-hidden shadow-lg group transform transition-transform duration-500 hover:scale-105 opacity-0 translate-y-10" data-animate>
+        <img src="C:\Users\saann\Downloads\website-main\ins.jpg" class="w-full h-full object-cover"/>
+        <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-white p-6">
+          <h3 class="text-xl font-semibold mb-2">📊 Predictive Insights</h3>
+          <p class="opacity-90">Forecast incidents & optimize safety strategies.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-16 services-bg">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-#000000 mb-12">🔧 Core Services</h2>
-            <div class="mb-12">
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">📊 Scope 3 Emissions Estimation Engine</h4>
-                        <p class="text-gray-600">AI-driven calculation and modeling for all 15 categories, tailored to oil & gas operations. Handles missing data with intelligent gap-filling.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">📈 Real-Time Scope 3 Dashboard</h4>
-                        <p class="text-gray-600">Dynamic, visual dashboards showing emissions by category, supplier, asset, or activity. Exportable insights for compliance teams.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">👥 Supplier ESG Profiling</h4>
-                        <p class="text-gray-600">Automated scoring of suppliers based on emissions, compliance history, and public disclosures.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">🔮 Predictive Emissions Forecasting</h4>
-                        <p class="text-gray-600">ML-based forecasting of future Scope 3 emissions using procurement, logistics, and contract data.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">📝 NLP-Powered Invoice & Contract Parsing</h4>
-                        <p class="text-gray-600">Extracts emission data automatically from invoices, contracts, POs, and freight docs using AI.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">🖋️ AI Regulatory Filing Assistant</h4>
-                        <p class="text-gray-600">Auto-generates CDP, CSRD, SEC, and SBTi-compliant reports using context-aware language models.</p>
-                    </div>
-                </div>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-#000000 mb-12">🚀 Advanced Services</h2>
-            <div class="mb-12">
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">🔍 AI ESG Compliance Copilot</h4>
-                        <p class="text-gray-600">A conversational assistant for real-time ESG insights.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">🧪 Lifecycle Emissions Simulator</h4>
-                        <p class="text-gray-600">Forecast GHG impact of products, assets, or fuel blends.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">🧾 Reconciliation Engine</h4>
-                        <p class="text-gray-600">Compare and correct buyer/supplier emission discrepancies.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">🌐 Supplier Collaboration Portal</h4>
-                        <p class="text-gray-600">Enable suppliers to upload data, get trained, and benchmark.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">🔗 Blockchain Traceability (Optional)</h4>
-                        <p class="text-gray-600">Immutable emission history data.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">💸 Carbon Pricing Simulator</h4>
-                        <p class="text-gray-600">Assess financial exposure to future carbon policies.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">🧠 ESGAI™ Foundation Model</h4>
-                        <p class="text-gray-600">Proprietary AI that understands ESG law, ethics, and risks.</p>
-                    </div>
-                </div>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-#000000 mb-12">🧩 Custom Integration & Support</h2>
-            <div class="mb-12">
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">API Integrations</h4>
-                        <p class="text-gray-600">Integrate with SAP, Oracle, ERP systems seamlessly.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">Data Onboarding & Cleansing</h4>
-                        <p class="text-gray-600">Streamline data preparation for accurate insights.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">ESG Training for Teams</h4>
-                        <p class="text-gray-600">Custom training for internal teams on ESG compliance.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">Custom Emission Factor Design</h4>
-                        <p class="text-gray-600">Tailored emission factors for your operations.</p>
-                    </div>
-                    <div class="feature-card p-6">
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">Audit & Assurance Readiness</h4>
-                        <p class="text-gray-600">Prepare for audits with comprehensive data trails.</p>
-                    </div>
-                </div>
-            </div>
+<script>
+// Scroll animation for cards (fade & slide)
+const animateElements = document.querySelectorAll('[data-animate]');
+const heading = document.getElementById('services-heading');
+const subheading = document.getElementById('services-subheading');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.remove('opacity-0','translate-y-10');
+      entry.target.classList.add('opacity-100','translate-y-0');
+    }
+  });
+},{ threshold: 0.3 });
+
+animateElements.forEach(el => observer.observe(el));
+
+// Animate heading & subheading
+const textObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.remove('opacity-0','translate-y-10');
+      entry.target.classList.add('opacity-100','translate-y-0');
+    }
+  });
+},{ threshold: 0.5 });
+
+textObserver.observe(heading);
+textObserver.observe(subheading);
+</script>
+
+<style>
+/* Smooth fade + slide effect for heading & cards */
+.opacity-0 { opacity: 0; }
+.opacity-100 { opacity: 1; }
+.translate-y-10 { transform: translateY(40px); }
+.translate-y-0 { transform: translateY(0); }
+</style>
+
+
+<!-- Next Section (Blue BG) -->
+<section class="py-20 bg-[#0a1f44] text-white text-center" data-aos="fade-up">
+  <h2 class="text-3xl font-bold mb-6">Need Customized Services?</h2>
+  <p class="max-w-2xl mx-auto opacity-90">We design tailored solutions for oil, gas & construction projects.</p>
+  <a href="contact.html" class="mt-6 inline-block px-6 py-3 rounded-full bg-white text-[#0a1f44] font-semibold hover:bg-gray-200 transition">Request Personalized Services</a>
+</section>
+
+<!-- Our Approach -->
+<section id="approach" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+
+    <!-- Left: Dynamic Image/Video -->
+    <div class="relative w-full h-[400px] rounded-lg overflow-hidden shadow-lg" id="approach-media" data-aos="fade-right">
+      <img src="C:\Users\saann\Downloads\website-main\cctv.jpg" alt="Step 1" class="w-full h-full object-cover absolute inset-0 opacity-100 transition-opacity duration-700" id="media-1"/>
+      <img src="C:\Users\saann\Downloads\website-main\detect.jpg" alt="Step 2" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-700" id="media-2"/>
+      <img src="C:\Users\saann\Downloads\website-main\predict.jpg" alt="Step 3" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-700" id="media-3"/>
+      <img src="C:\Users\saann\Downloads\website-main\protect.jpg" alt="Step 4" class="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-700" id="media-4"/>
+    </div>
+
+    <!-- Right: Steps -->
+    <div data-aos="fade-left">
+      <h2 class="text-3xl font-bold text-[#0a1f44] mb-6">Our Approach</h2>
+      <p class="text-gray-700 mb-6">
+        At AiecoOne, our safety-first approach is designed to <strong>observe, detect, predict, and protect</strong> — 
+        ensuring safer worksites with AI-powered intelligence.
+      </p>
+
+      <div class="space-y-6">
+        <div class="flex items-start space-x-4 cursor-pointer approach-step" data-step="1">
+          <div class="bg-[#007bff] text-white w-10 h-10 flex items-center justify-center rounded-full font-bold">1</div>
+          <p class="text-gray-700"><strong>Observe:</strong> AI continuously analyzes PPE, worker activity, and hazards.</p>
         </div>
-    </section>
 
-    <!-- Why Choose AiecoSense 3? Expanded Section -->
-    <section class="py-8 why-choose-bg">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-#000000 mb-12">🌟 Why Choose AiecoSense 3?</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
-                <div class="benefit-card">
-                    <p class="text-4xl mb-2">🤖</p>
-                    <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">AI-Driven Accuracy</h4>
-                    <p class="text-gray-600">Leverage cutting-edge AI to ensure precise emissions tracking and compliance reporting.</p>
-                </div>
-                <div class="benefit-card">
-                    <p class="text-4xl mb-2">📈</p>
-                    <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">Scalable Solutions</h4>
-                    <p class="text-gray-600">Designed to grow with your operations, from small projects to global enterprises.</p>
-                </div>
-                <div class="benefit-card">
-                    <p class="text-4xl mb-2">🔒</p>
-                    <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">Future-Proof Compliance</h4>
-                    <p class="text-gray-600">Stay ahead of evolving regulations with adaptive AI technology.</p>
-                </div>
-                <div class="benefit-card">
-                    <p class="text-4xl mb-2">⚡</p>
-                    <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">Real-Time Insights</h4>
-                    <p class="text-gray-600">Make informed decisions with up-to-the-minute data and analytics.</p>
-                </div>
-                <div class="benefit-card">
-                    <p class="text-4xl mb-2">🌍</p>
-                    <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">Global Impact</h4>
-                    <p class="text-gray-600">Drive sustainability across your supply chain with global reach.</p>
-                </div>
-                <div class="benefit-card">
-                    <p class="text-4xl mb-2">🛠️</p>
-                    <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">Tailored Innovation</h4>
-                    <p class="text-gray-600">Custom solutions built specifically for the oil & gas sector.</p>
-                </div>
-            </div>
-	    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    <div class="benefit-card">
-                        <p class="text-4xl mb-2">📊</p>
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">Advanced AI Engine</h4>
-                        <p class="text-gray-600">Utilizes machine learning and NLP for precise data analysis and forecasting.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <p class="text-4xl mb-2">🔗</p>
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">Seamless Integration</h4>
-                        <p class="text-gray-600">Connects with ERP systems for effortless data flow and management.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <p class="text-4xl mb-2">🌱</p>
-                        <h4 class="text-lg md:text-xl font-semibold text-#000000 mb-2">Sustainability Impact</h4>
-                        <p class="text-gray-600">Supports net-zero goals with actionable insights and compliance tools.</p>
-                    </div>
-            </div>
-
-<div class="mt-12 mb-8">
-
-                <h3 class="text-5xl md:text-3xl font-bold text-#000000 mb-6">About AiecoSense 3</h3>
-                <p class="text-lg md:text-xl text-gray-600 text-justify max-w-3xl mx-auto mb-8">AiecoSense 3 is a cutting-edge AI platform designed to transform ESG compliance and Scope 3 emissions tracking for the oil and gas industry. Powered by the proprietary ESGAI™ Foundation Model, it offers unparalleled accuracy in emissions estimation, real-time data visualization, and predictive analytics. With seamless integration into existing ERP systems like SAP and Oracle, AiecoSense 3 automates data onboarding, cleanses inconsistencies, and generates regulatory reports compliant with CDP, CSRD, SEC, and SBTi standards. Its advanced NLP capabilities parse complex documents such as invoices and contracts, while its blockchain traceability option ensures an immutable record of emissions data. Deployed across major oil and gas operations, AiecoSense 3 has reduced compliance costs by up to 30% and improved reporting accuracy by 25%, making it a leader in sustainable energy solutions.</p>
-                </div>
+        <div class="flex items-start space-x-4 cursor-pointer approach-step" data-step="2">
+          <div class="bg-[#007bff] text-white w-10 h-10 flex items-center justify-center rounded-full font-bold">2</div>
+          <p class="text-gray-700"><strong>Detect:</strong> Unsafe actions, gas leaks, and intrusions are instantly flagged.</p>
         </div>
-    </section>
 
-    <!-- Testimonials Section -->
-    <section class="py-8 testimonials-bg">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-#000000 mb-12">💬 What Our Clients Say</h2>
-            <div class="carousel">
-                <div class="testimonial-card">
-                    <p class="text-gray-600 italic mb-4">"AiecoSense 3 has streamlined our emissions tracking process, saving us hours of manual work each month."</p>
-                    <p class="text-#000000 font-semibold">- Client 1, Sustainability Director</p>
-                </div>
-                <div class="testimonial-card">
-                    <p class="text-gray-600 italic mb-4">"The real-time dashboards are a game-changer for our compliance team—highly accurate and easy to use."</p>
-                    <p class="text-#000000 font-semibold">- Client 2, Compliance Officer</p>
-                </div>
-                <div class="testimonial-card">
-                    <p class="text-gray-600 italic mb-4">"Thanks to AiecoSense 3, we passed our latest audit with zero discrepancies—truly impressive technology!"</p>
-                    <p class="text-#000000 font-semibold">- Client 3, Operations Manager</p>
-                </div>
-            </div>
-            <a class="animated-btn px-4 py-2 mt-4" onclick="scrollCarousel(-1)">←</a>
-            <a class="animated-btn px-4 py-2 mt-4" onclick="scrollCarousel(1)">→</a>
+        <div class="flex items-start space-x-4 cursor-pointer approach-step" data-step="3">
+          <div class="bg-[#007bff] text-white w-10 h-10 flex items-center justify-center rounded-full font-bold">3</div>
+          <p class="text-gray-700"><strong>Predict:</strong> Analytics forecast risks before incidents occur.</p>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 contact-bg">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-#000000 mb-6">📞 Contact Us for a Demo</h2>
-            <img src=malcolm-brostrom-tCCZpZUMgio-unsplash.jpg alt="Handshake in Front of Oil Rig" class="w-full h-64 object-cover rounded-lg mb-4">
-            <p class="text-lg md:text-xl text-gray-600 mb-8">Reach out to learn how AiecoSense 3 can transform your sustainability efforts.</p>
-            <p class="text-lg md:text-xl text-#000000 mb-8"><a href="http://www.aiecoindustries.com" class="hover:underline">🌐 www.aiecoindustries.com</a></p>
-            <p class="text-lg md:text-xl text-#000000 mb-8">📧 industriesaieco@gmail.com</p>
-            <div class="contact-form opacity-0 max-w-lg mx-auto">
-                <input type="text" placeholder="Your Name" class="w-full p-3 mb-4 border border-#E0E0E0 rounded-md bg-#FFFFFF text-#000000 focus:outline-none focus:ring-2 focus:ring-#000000">
-                <input type="email" placeholder="Your Email" class="w-full p-3 mb-4 border border-#E0E0E0 rounded-md bg-#FFFFFF text-#000000 focus:outline-none focus:ring-2 focus:ring-#000000">
-                <textarea placeholder="Your Message" class="w-full p-3 mb-4 border border-#E0E0E0 rounded-md bg-#FFFFFF text-#000000 focus:outline-none focus:ring-2 focus:ring-#000000" rows="5"></textarea>
-                <a class="animated-btn px-8 py-3 rounded-md">Send Message</a>
-                <a class="animated-btn px-8 py-3 mt-4">Subscribe to Newsletter</a>
-            </div>
+        <div class="flex items-start space-x-4 cursor-pointer approach-step" data-step="4">
+          <div class="bg-[#007bff] text-white w-10 h-10 flex items-center justify-center rounded-full font-bold">4</div>
+          <p class="text-gray-700"><strong>Protect:</strong> Automated alerts & dashboards enable immediate action.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="py-8 footer-bg text-center">
-        <div class="container mx-auto px-4">
-            <p class="text-lg md:text-xl mb-4 text-gray-600">© 2025 Aieco Industries. All rights reserved.</p>
-            <ul class="flex justify-center space-x-6">
-                <li><a href="#home" class="hover:text-#E0E0E0">Home</a></li>
-                <li><a href="#services" class="hover:text-#E0E0E0">Services</a></li>
-                <li><a href="#about" class="hover:text-#E0E0E0">About</a></li>
-                <li><a href="#contact" class="hover:text-#E0E0E0">Contact</a></li>
-            </ul>
-        </div>
-    </footer>
+<!-- Script for Interactive Media -->
+<script>
+  const steps = document.querySelectorAll('.approach-step');
+  const mediaItems = {
+    1: document.getElementById('media-1'),
+    2: document.getElementById('media-2'),
+    3: document.getElementById('media-3'),
+    4: document.getElementById('media-4')
+  };
 
-    <!-- JavaScript for Animations -->
-    <script>
-        // Section Scale Animations
-        const sections = document.querySelectorAll('.hero-bg, .mission-bg, .services-bg, .about-bg, .testimonials-bg, .contact-bg, .why-choose-bg');
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.2 });
+  steps.forEach(step => {
+    step.addEventListener('mouseenter', () => {
+      const stepNum = step.getAttribute('data-step');
+      // Hide all
+      Object.values(mediaItems).forEach(el => el.style.opacity = '0');
+      // Show current
+      mediaItems[stepNum].style.opacity = '1';
+    });
+    step.addEventListener('click', () => {
+      const stepNum = step.getAttribute('data-step');
+      Object.values(mediaItems).forEach(el => el.style.opacity = '0');
+      mediaItems[stepNum].style.opacity = '1';
+    });
+  });
+</script>
 
-        sections.forEach(section => {
-            sectionObserver.observe(section);
-        });
 
-        // Scroll Animation for Feature Cards and Benefit Cards
-        const cards = document.querySelectorAll('.feature-card, .benefit-card');
-        const cardObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
+<!-- Why Choose Us -->
+<section class="py-20 bg-gray-50" data-aos="fade-up">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-[#0a1f44] mb-10">Why Choose Us?</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-6 bg-white shadow rounded" data-aos="flip-left">
+        <h4 class="font-semibold mb-2">🚀 Innovation</h4>
+        <p>Next-gen AI tailored to oil & gas and construction industries. We go beyond generic solutions.</p>
+      </div>
+      <div class="p-6 bg-white shadow rounded" data-aos="flip-left" data-aos-delay="100">
+        <h4 class="font-semibold mb-2">🔒 Reliability</h4>
+        <p>Built for harsh environments, our platform delivers 24/7 safety monitoring with <strong>99.9% uptime</strong>.</p>
+      </div>
+      <div class="p-6 bg-white shadow rounded" data-aos="flip-left" data-aos-delay="200">
+        <h4 class="font-semibold mb-2">🌍 ESG Commitment</h4>
+        <p>Align with global ESG standards while protecting workers and the environment simultaneously.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Our Process -->
+<section id="process" class="py-20 bg-[#0a1f44] text-white relative">
+  <div class="max-w-6xl mx-auto text-center mb-16" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-4">Our Process</h2>
+    <p class="text-gray-300 text-lg">We follow a clear methodology to deliver safety intelligence across every site.</p>
+  </div>
 
-        cards.forEach(card => {
-            cardObserver.observe(card);
-        });
+  <!-- Process Steps -->
+  <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+    
+    <!-- Step 1 -->
+    <div class="group p-10 h-[340px] flex flex-col justify-start rounded-xl bg-[#112d66] shadow-lg 
+                transform transition duration-500 hover:-translate-y-3 hover:shadow-2xl hover:bg-white" 
+         data-aos="fade-up" data-aos-delay="0">
+      <div class="text-7xl font-extrabold mb-4 transition 
+                  text-white/20 group-hover:text-[#112d66]/30">01</div>
+      <h3 class="text-2xl font-semibold mb-3 transition group-hover:text-[#0a1f44]">Assess</h3>
+      <p class="leading-relaxed transition group-hover:text-[#0a1f44]">
+        Site audits, compliance checks, and risk analysis to understand unique challenges before we act.
+      </p>
+    </div>
 
-        // About Section Animation
-        const aboutContent = document.querySelector('.about-content');
-        const aboutObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.3 });
-        aboutObserver.observe(aboutContent);
+    <!-- Step 2 -->
+    <div class="group p-10 h-[340px] flex flex-col justify-start rounded-xl bg-[#112d66] shadow-lg 
+                transform transition duration-500 hover:-translate-y-3 hover:shadow-2xl hover:bg-white" 
+         data-aos="fade-up" data-aos-delay="150">
+      <div class="text-7xl font-extrabold mb-4 transition 
+                  text-white/20 group-hover:text-[#112d66]/30">02</div>
+      <h3 class="text-2xl font-semibold mb-3 transition group-hover:text-[#0a1f44]">Deploy</h3>
+      <p class="leading-relaxed transition group-hover:text-[#0a1f44]">
+        Quick installation of AI vision & IoT sensors across the site for maximum coverage and speed.
+      </p>
+    </div>
 
-        // Contact Section Animation
-        const contactForm = document.querySelector('.contact-form');
-        const contactObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.3 });
-        contactObserver.observe(contactForm);
+    <!-- Step 3 -->
+    <div class="group p-10 h-[340px] flex flex-col justify-start rounded-xl bg-[#112d66] shadow-lg 
+                transform transition duration-500 hover:-translate-y-3 hover:shadow-2xl hover:bg-white" 
+         data-aos="fade-up" data-aos-delay="300">
+      <div class="text-7xl font-extrabold mb-4 transition 
+                  text-white/20 group-hover:text-[#112d66]/30">03</div>
+      <h3 class="text-2xl font-semibold mb-3 transition group-hover:text-[#0a1f44]">Monitor</h3>
+      <p class="leading-relaxed transition group-hover:text-[#0a1f44]">
+        Continuous real-time analysis with instant alerts, dashboards, and compliance tracking.
+      </p>
+    </div>
 
-        // Carousel Control
-        let scrollPosition = 0;
-        function scrollCarousel(direction) {
-            const carousel = document.querySelector('.carousel');
-            scrollPosition += direction * 320; // Adjust based on card width + margin
-            if (scrollPosition > 0) scrollPosition = 0;
-            if (scrollPosition < -(carousel.scrollWidth - carousel.clientWidth)) scrollPosition = -(carousel.scrollWidth - carousel.clientWidth);
-            carousel.style.transform = `translateX(${scrollPosition}px)`;
-        }
+    <!-- Step 4 -->
+    <div class="group p-10 h-[340px] flex flex-col justify-start rounded-xl bg-[#112d66] shadow-lg 
+                transform transition duration-500 hover:-translate-y-3 hover:shadow-2xl hover:bg-white" 
+         data-aos="fade-up" data-aos-delay="450">
+      <div class="text-7xl font-extrabold mb-4 transition 
+                  text-white/20 group-hover:text-[#112d66]/30">04</div>
+      <h3 class="text-2xl font-semibold mb-3 transition group-hover:text-[#0a1f44]">Improve</h3>
+      <p class="leading-relaxed transition group-hover:text-[#0a1f44]">
+        Predictive insights, reports, and ongoing training to make sites safer over time.
+      </p>
+    </div>
+  </div>
 
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const menu = document.getElementById('nav-menu');
-            menu.classList.toggle('active');
-        }
-    </script>
-</body>
-</html>
+  <!-- Learn More Button -->
+  <div class="mt-14 text-center" data-aos="zoom-in" data-aos-delay="600">
+    <a href="process.html" 
+       class="inline-block px-10 py-4 rounded-full bg-white text-[#0a1f44] font-semibold text-lg 
+              transition transform hover:scale-110 hover:bg-gray-200 hover:shadow-lg">
+      Learn More
+    </a>
+  </div>
+</section>
+
+
+<!-- Our Commitments -->
+<section id="commitments" class="py-20 bg-white text-[#0a1f44] relative">
+  <div class="max-w-6xl mx-auto text-center mb-16" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-4">Our Commitments</h2>
+    <p class="text-lg text-gray-600">At AiecoOne, we believe safety is more than compliance — it’s a promise.  
+       Our commitments reflect our responsibility towards workers, industries, and the environment.</p>
+  </div>
+
+  <!-- Commitments Grid -->
+  <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+
+    <!-- Commitment 1 -->
+    <div class="p-8 rounded-xl bg-gray-100 shadow-md hover:shadow-xl transform transition duration-500 hover:-translate-y-2" 
+         data-aos="fade-up" data-aos-delay="0">
+      <div class="text-4xl mb-4">✔️</div>
+      <h3 class="text-xl font-semibold mb-3">Zero Harm Vision</h3>
+      <p class="text-gray-700">Our ultimate goal is a workplace where every worker returns home safe, every day.</p>
+    </div>
+
+    <!-- Commitment 2 -->
+    <div class="p-8 rounded-xl bg-gray-100 shadow-md hover:shadow-xl transform transition duration-500 hover:-translate-y-2" 
+         data-aos="fade-up" data-aos-delay="100">
+      <div class="text-4xl mb-4">🌍</div>
+      <h3 class="text-xl font-semibold mb-3">Environmental Stewardship</h3>
+      <p class="text-gray-700">We actively work to reduce emissions and align operations with ESG and sustainability goals.</p>
+    </div>
+
+    <!-- Commitment 3 -->
+    <div class="p-8 rounded-xl bg-gray-100 shadow-md hover:shadow-xl transform transition duration-500 hover:-translate-y-2" 
+         data-aos="fade-up" data-aos-delay="200">
+      <div class="text-4xl mb-4">🤝</div>
+      <h3 class="text-xl font-semibold mb-3">Transparency & Trust</h3>
+      <p class="text-gray-700">We provide clear reports, data-driven insights, and open communication with stakeholders.</p>
+    </div>
+
+    <!-- Commitment 4 -->
+    <div class="p-8 rounded-xl bg-gray-100 shadow-md hover:shadow-xl transform transition duration-500 hover:-translate-y-2" 
+         data-aos="fade-up" data-aos-delay="300">
+      <div class="text-4xl mb-4">🚀</div>
+      <h3 class="text-xl font-semibold mb-3">Innovation for Safety</h3>
+      <p class="text-gray-700">We continuously evolve with AI-driven safety solutions to meet future industrial challenges.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- Footer Section -->
+<footer class="bg-[#0a1f44] text-white mt-20">
+  <!-- Top CTA Section -->
+  <div class="text-center py-16 px-6" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-6">Ready to make your workers safer?</h2>
+    <a href="contact.html" 
+       class="inline-block px-12 py-4 rounded-full bg-white text-[#0a1f44] font-semibold text-lg 
+              transition transform hover:scale-110 hover:bg-gray-200 hover:shadow-lg">
+      Contact Us
+    </a>
+  </div>
+
+  
+
+  <!-- Bottom Footer -->
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center py-10 px-6">
+    
+    <!-- Left: Logo + Company -->
+    <div class="flex items-center space-x-3 mb-6 md:mb-0">
+      <img src="C:\Users\saann\Downloads\website-main\m4.png" alt="Aieco Industries" class="h-10 w-10"/>
+      <span class="font-semibold text-lg">Aieco Industries</span>
+    </div>
+
+    <!-- Middle: Navigation Links -->
+    <div class="flex space-x-6 mb-6 md:mb-0">
+      <a href="index.html" class="relative hover:text-blue-300 transition after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-blue-300 after:transition-all after:duration-300 hover:after:w-full">Home</a>
+      <a href="about.html" class="relative hover:text-blue-300 transition after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-blue-300 after:transition-all after:duration-300 hover:after:w-full">About</a>
+      <a href="services.html" class="relative hover:text-blue-300 transition after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-blue-300 after:transition-all after:duration-300 hover:after:w-full">Services</a>
+    </div>
+
+    <!-- Right: Social Links -->
+<div class="flex space-x-4">
+  <!-- X -->
+  <a href="https://x.com" target="_blank" 
+     class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-black transition">
+    <i class="fab fa-x-twitter text-lg"></i>
+    <span class="sr-only">X (formerly Twitter)</span>
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://instagram.com" target="_blank" 
+     class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-pink-500 transition">
+    <i class="fab fa-instagram text-lg"></i>
+    <span class="sr-only">📸 Instagram</span>
+  </a>
+
+  <!-- LinkedIn -->
+  <a href="https://linkedin.com" target="_blank" 
+     class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-blue-700 transition">
+    <i class="fab fa-linkedin-in text-lg"></i>
+    <span class="sr-only">💼 LinkedIn</span>
+  </a>
+</div>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="text-center text-sm text-white/60 pb-6">
+    © 2025 Aieco Industries. All rights reserved.
+  </div>
+</footer>
+
+<!-- Font Awesome (for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+<script>
+  // Auto-Slideshow for Hero Section
+  document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // Show the first slide
+    showSlide(currentSlide);
+
+    // Start the slideshow
+    slideInterval = setInterval(nextSlide, 1500); // every 4 seconds
+  });
+</script>
+
+<style>
+  .slide {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+  }
+
+  .slide.active {
+    display: block;
+    opacity: 1;
+  }
+</style>

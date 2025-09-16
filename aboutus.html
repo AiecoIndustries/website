@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Aieco Industries</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body { font-family: 'Space Grotesk', sans-serif; margin:0; padding:0; scroll-behavior:smooth; background:#f9fafb; }
+header { display:flex; justify-content:space-between; align-items:center; padding:20px 50px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.1); position:sticky; top:0; z-index:1000; }
+header .logo { display:flex; align-items:center; font-size:26px; font-weight:700; }
+header nav a { margin-left:25px; font-weight:700; text-decoration:none; color:#333; }
+header nav a.book-btn { padding:0.5rem 1.2rem; background:#0077b6; color:#fff; border-radius:9999px; }
+
+section { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:0 5%; }
+.section-inner { display:flex; flex-wrap:wrap; max-width:1200px; width:100%; align-items:center; justify-content:space-between; transition: all 0.8s ease; }
+.section-inner.reverse { flex-direction: row-reverse; }
+
+.section-image { flex:1 1 45%; display:flex; justify-content:center; }
+.section-image img { width:100%; max-width:500px; border-radius:1rem; box-shadow:0 10px 30px rgba(0,0,0,0.1); transition: transform 0.8s ease; }
+
+.section-content { flex:1 1 45%; padding:20px; transition: all 0.8s ease; }
+.section-content h2 { font-size:3rem; font-weight:700; margin-bottom:1rem; opacity:0; transform:translateY(40px) scale(0.95); transition: all 0.8s ease; }
+.section-content h2.visible { opacity:1; transform:translateY(0) scale(1); }
+.section-content p { font-size:1.2rem; line-height:1.8; }
+
+.section-divider { height:3px; background:linear-gradient(to right, #0077b6, #ff6600); margin:40px 0; border-radius:5px; width:80%; margin-left:auto; margin-right:auto; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="C:\Users\saann\Downloads\website-main\website-main\m1.png" alt="Logo" class="w-10 h-10 mr-3">
+    <span style="font-style:italic;">Aieco Industries</span>
+  </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#" class="book-btn">Book</a>
+  </nav>
+</header>
+
+<!-- About Us Heading -->
+<h2 class="about-us-heading" style="text-align:center; font-size:3rem; font-weight:700; margin:40px 0; background:linear-gradient(to right, #0077b6, #ff6600); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+  About Us
+</h2>
+
+<!-- Divider before first section -->
+<div class="section-divider"></div>
+
+<!-- Problem Section -->
+<section>
+  <div class="section-inner reverse">
+    <div class="section-image">
+      <img src="C:\Users\saann\Downloads\ludovic-migneault-B9YbNbaemMI-unsplash.jpg"alt="Problem Illustration">
+    </div>
+    <div class="section-content text-[#e63946]">
+      <h2 class="heading">Problem</h2>
+      <p>Many industrial sites face recurring safety hazards, low worker compliance, and inefficient monitoring systems, causing operational risks and accidents.</p>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+<!-- Solution Section -->
+<section>
+  <div class="section-inner">
+    <div class="section-image">
+      <img src="C:\Users\saann\Downloads\louise-viallesoubranne-yGivXHUB-bI-unsplash.jpg"" alt="Solution Illustration">
+    </div>
+    <div class="section-content text-[#457b9d]">
+      <h2 class="heading">Solution</h2>
+      <p>Aieco Industries provides AI-powered monitoring, real-time alerts, predictive insights, and seamless compliance systems to make worksites safer and more productive.</p>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+<!-- Mission Section -->
+<section>
+  <div class="section-inner reverse">
+    <div class="section-image">
+      <img src="C:\Users\saann\Downloads\a group of construction site workers about 8-9 of them , looking straight with a happy face and smiling with a thumbs up (1).jpg" alt="Mission Illustration">
+    </div>
+    <div class="section-content text-[#2a9d8f]">
+      <h2 class="heading">Our Mission</h2>
+      <p>To leverage cutting-edge AI solutions for ensuring worker safety, operational efficiency, and environmental compliance across industries.</p>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+<!-- Vision Section -->
+<section>
+  <div class="section-inner">
+    <div class="section-image">
+      <img src="C:\Users\saann\Downloads\razvan-chisu-Ua-agENjmI4-unsplash.jpg" alt="Vision Illustration">
+    </div>
+    <div class="section-content text-[#f4a261]">
+      <h2 class="heading">Vision</h2>
+      <p>To be the global leader in AI-driven industrial safety solutions, transforming how industries approach risk management and worker welfare.</p>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+<!-- Values Section -->
+<section>
+  <div class="section-inner reverse">
+    <div class="section-image">
+      <img src="C:\Users\saann\Downloads\fortytwo-1xMG-yqR2GM-unsplash.jpg" alt="Values Illustration">
+    </div>
+    <div class="section-content text-[#e9c46a]">
+      <h2 class="heading">Values</h2>
+      <p>Integrity, Innovation, Safety, Collaboration, and Sustainability guide every decision and solution we implement for our clients.</p>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+<!-- Commitments Section -->
+<section>
+  <div class="section-inner">
+    <div class="section-image">
+      <img src="C:\Users\saann\Downloads\cash-macanaya-X9Cemmq4YjM-unsplash.jpg"alt="Commitments Illustration">
+    </div>
+    <div class="section-content text-[#1d3557]">
+      <h2 class="heading">Commitments</h2>
+      <p>We commit to continuous improvement, adopting the latest AI technology, and providing reliable, actionable insights to enhance site safety and efficiency.</p>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+<script>
+// Headings scroll animation
+const headings = document.querySelectorAll('.heading');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
+},{threshold:0.5});
+headings.forEach(h=>observer.observe(h));
+</script>
+<!-- Footer Section -->
+<footer class="bg-[#0a1f44] text-white mt-20">
+  <!-- Top CTA Section -->
+  <div class="text-center py-16 px-6">
+    <h2 class="text-3xl font-bold mb-6">Ready to make your workers safer?</h2>
+    <a href="contact.html" 
+       class="inline-block px-12 py-4 rounded-full bg-white text-[#0a1f44] font-semibold text-lg 
+              transition transform hover:scale-110 hover:bg-gray-200 hover:shadow-lg">
+      Contact Us
+    </a>
+  </div>
+
+  <!-- Bottom Footer -->
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center py-10 px-6">
+    
+    <!-- Left: Logo + Company -->
+    <div class="flex items-center space-x-3 mb-6 md:mb-0">
+      <img src="C:\Users\saann\Downloads\website-main\m4.png" alt="Aieco Industries" class="h-10 w-10"/>
+      <span class="font-semibold text-lg">Aieco Industries</span>
+    </div>
+
+    <!-- Middle: Navigation Links -->
+    <div class="flex space-x-6 mb-6 md:mb-0">
+      <a href="index.html" class="hover:text-blue-300 transition">Home</a>
+      <a href="about.html" class="hover:text-blue-300 transition">About</a>
+      <a href="services.html" class="hover:text-blue-300 transition">Services</a>
+    </div>
+
+    <!-- Right: Social Links -->
+    <div class="flex space-x-4">
+      <!-- X/Twitter -->
+      <a href="https://x.com" target="_blank" 
+         class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-black transition">
+        <i class="fab fa-x-twitter text-lg"></i>
+      </a>
+      <!-- Instagram -->
+      <a href="https://instagram.com" target="_blank" 
+         class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-pink-500 transition">
+        <i class="fab fa-instagram text-lg"></i>
+      </a>
+      <!-- LinkedIn -->
+      <a href="https://linkedin.com" target="_blank" 
+         class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-blue-700 transition">
+        <i class="fab fa-linkedin-in text-lg"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="text-center text-sm text-white/60 pb-6">
+    © 2025 Aieco Industries. All rights reserved.
+  </div>
+</footer>
+
+<!-- Font Awesome for social icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</body>
+</html>
