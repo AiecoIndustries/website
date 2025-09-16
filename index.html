@@ -68,7 +68,18 @@
       background: #007bff; color: #fff; border-color: #007bff;
       transform: scale(1.05);
     }
-    section { padding: 80px 20px; }
+    section { 
+  padding:60px 50px;   /* less vertical padding */
+}
+
+section:first-of-type {
+  padding-top: 0;      /* removes extra gap after video */
+}
+
+.heading {
+  margin-top: 20px;    /* smaller top margin for headings */
+}
+
     footer { text-align: center; padding: 20px; background: #f2f2f2; color: #444; }
   </style>
 </head>
@@ -552,6 +563,7 @@ headings.forEach(h=>observer.observe(h));
     opacity: 1;
   }
 </style>
+
 
 
 
