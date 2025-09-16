@@ -106,23 +106,37 @@ h2.visible { opacity:1; transform:translateY(0) scale(1); }
   <div class="feature-card tall" style="background-image:url('growtika-FQ3lFA4Zi58-unsplash.jpg')" data-points="IoT integration,Smart monitoring,Data unification,Improved efficiency,Connected workforce">IoT Integration</div>
   <div class="feature-card wide" style="background-image:url('amina-atar-Mqc-m8kgxkg-unsplash.jpg')" data-points="Digital contracts,AI review,Error-free approvals,Faster workflows,Transparency ensured">Contract Management</div>
 </div>
-
 <script>
-// Card content creation
 document.querySelectorAll('.feature-card').forEach(card => {
   const pointsText = card.getAttribute('data-points');
   const points = pointsText ? pointsText.split(',') : [];
   const pointsList = document.createElement('ul');
   pointsList.classList.add('points');
-  points.forEach(p => { const li = document.createElement('li'); li.textContent = p; pointsList.appendChild(li); });
+  points.forEach(p => { 
+    const li = document.createElement('li'); 
+    li.textContent = p; 
+    pointsList.appendChild(li); 
+  });
   const content = document.createElement('div');
   content.classList.add('card-content');
   content.innerHTML = `<div class="title">${card.textContent}</div>`;
   content.appendChild(pointsList);
-  card.innerHTML = ""; card.appendChild(content);
+  card.innerHTML = ""; 
+  card.appendChild(content);
 
-  card.addEventListener('mouseenter',()=>{card.classList.add('expanded');});
-  card.addEventListener('mouseleave',()=>{card.classList.remove('expanded');});
+  // Detect if device is touch-based
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  if (isTouch) {
+    // Toggle expand on tap
+    card.addEventListener('click', () => {
+      card.classList.toggle('expanded');
+    });
+  } else {
+    // Desktop hover behavior
+    card.addEventListener('mouseenter', () => { card.classList.add('expanded'); });
+    card.addEventListener('mouseleave', () => { card.classList.remove('expanded'); });
+  }
 });
 
 // Headings scroll animation
@@ -135,8 +149,10 @@ const observer = new IntersectionObserver(entries=>{
 headings.forEach(h=>observer.observe(h));
 </script>
 
+
 </body>
 </html>
+
 
 
 
