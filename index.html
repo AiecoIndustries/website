@@ -31,14 +31,22 @@
 
 .overlay {
   position: absolute;
-  inset: 0; /* shorthand for top/right/bottom/left:0 */
+  inset: 0;
   background: rgba(0,0,0,0.4);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 1; /* sits above video */
+  z-index: 10; /* sits above video */
 }
+
+.content {
+  position: relative;
+  z-index: 20; /* buttons are clickable */
+  text-align: center;
+  color: #fff;
+}
+
 
 .overlay button {
   padding: 12px 30px;
@@ -128,7 +136,39 @@ section:first-of-type {
     <video autoplay muted loop playsinline>
       <source src="headvideo.mp4"type="video/mp4">
     </video>
-    <div class="overlay"></div>
+  <!-- Replace this part -->
+<!-- <div class="overlay"></div> -->
+
+<!-- Hero Overlay with Content inside -->
+<div class="overlay">
+  <div class="content">
+    <div class="slide active">
+      <h2>🦺 Real-Time PPE Detection</h2>
+      <p>Ensure every worker is safe with AI monitoring helmets, vests & gloves.</p>
+    </div>
+    <div class="slide">
+      <h2>🚨 Hazard & Intrusion Alerts</h2>
+      <p>AI detects sparks, gas leaks, intrusions & dangerous zones instantly.</p>
+    </div>
+    <div class="slide">
+      <h2>👷 Worker Task Monitoring</h2>
+      <p>Track worker movements & task adherence with live AI vision.</p>
+    </div>
+    <div class="slide">
+      <h2>📊 Predictive Safety Dashboard</h2>
+      <p>See compliance rates, incident history & risk forecasts in real time.</p>
+    </div>
+    <div class="slide">
+      <h2>🌐 Unified Safety Platform</h2>
+      <p>Integrate CCTV, IoT & sensors into one AI-driven ecosystem.</p>
+    </div>
+    <div class="mt-8">
+      <a href="services.html" class="btn">Explore Safety Features</a>
+      <a href="book.html" class="btn">Book Demo</a>
+    </div>
+  </div>
+</div>
+
 
     <!-- Navbar inside hero -->
     <nav>
@@ -621,6 +661,7 @@ headings.forEach(h=>observer.observe(h));
     opacity: 1;
   }
 </style>
+
 
 
 
